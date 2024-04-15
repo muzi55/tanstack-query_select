@@ -15,6 +15,7 @@ function App() {
   const query = useQuery({
     queryKey: ["data"],
     queryFn: getData,
+    select: (data) => data.map((el) => ({ ...el, brand: "KAKAO" })),
   });
 
   console.log(query);
