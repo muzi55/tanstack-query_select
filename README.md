@@ -78,3 +78,36 @@ const query = useQuery({
 앞으로 가공될 값을 사용하게 될 경우 select라는 옵션을 사용하고,
 
 원본의 값과 가공된 경우의 값을 사용하는 경우, 원본의 값을 가져오고 따로 가공처리를 해줘야할거같다.
+
+<br />
+<br />
+<br />
+
+## select로 값 바꾸기
+
+![alt text](3.png)
+
+```jsx
+const query = useQuery({
+  queryKey: ["data"],
+  queryFn: getData,
+  select: (data) => data.map((el) => ({ ...el, brand: "KAKAO" })),
+});
+```
+
+값을 추가한 경우
+
+<br />
+<br />
+
+![alt text](2.PNG)
+
+```jsx
+const query = useQuery({
+  queryKey: ["data"],
+  queryFn: getData,
+  select: (data) => data.map((el) => el.name),
+});
+```
+
+값을 제거한 경우
